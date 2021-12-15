@@ -50,13 +50,24 @@ public class CourierCreationTest extends RestAssuredClient {
         courierId = login.extract().path( "id");
         ValidatableResponse response = courierClient.createCourier(courier);
         int statusCode = response.extract().statusCode();
-        boolean isIdenticalCourierNotCreated = response.extract().path("message").equals("Этот логин уже используется");
 
-        //Баг в message:
-        //ОР: "Этот логин уже используется"
-        //ФР: "Этот логин уже используется. Попробуйте другой."
+        String thisLoginAllreadyExist = "Этот логин уже используется.";
+
+        boolean isIdenticalCourierNotCreated = response
+                .extract()
+                .path("message")
+                .toString()
+                .contains(thisLoginAllreadyExist);
+
+        String responseMessage = response
+                .extract()
+                .path("message")
+                .toString();
+
         assertThat("Некорректный код статуса", statusCode, equalTo(409));
         assertTrue("Создано два одинаковых курьера", isIdenticalCourierNotCreated);
+        assertThat("Cообщение о неуникальном логине не соответствует ожидаемому",
+                responseMessage, equalTo(thisLoginAllreadyExist));
     }
 
 }

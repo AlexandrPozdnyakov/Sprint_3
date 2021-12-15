@@ -53,13 +53,18 @@ public class OrderCreationTest {
     public void checkOrderCanBeCreatedTest() {
 
         ValidatableResponse response = orderClient.createOrder(order);
+
+        assertThat("Ответ на запрос создания заказа пуст", response, notNullValue());
+
         int statusCode = response.extract().statusCode();
         trackID = response.extract().path("track");
-        ValidatableResponse responseId = orderClient.getOrderInfo(trackID);
-        List<Object> actualColor = responseId.extract().jsonPath().getList("order.color");
 
         assertEquals("Некорректный код статуса", 201, statusCode);
         assertThat("Некорректный ID трека", trackID, notNullValue());
+
+        ValidatableResponse responseId = orderClient.getOrderInfo(trackID);
+        List<Object> actualColor = responseId.extract().jsonPath().getList("order.color");
+
         assertEquals("Некорректное значение цвета", expectedColor, actualColor);
     }
 

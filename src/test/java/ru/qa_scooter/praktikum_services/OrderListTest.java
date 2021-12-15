@@ -31,7 +31,11 @@ public class OrderListTest {
 
         assertEquals("Некорректный код статуса", 200, statusCode);
         assertThat("Список заказов пуст", orders, hasSize(30));
-        assertThat("Некорректный ID заказа", orders.get(randomID).get("id"), notNullValue());
+
+        for (Map<String, Object> ord : orders)
+        {
+            assertThat("Некорректный ID заказа", ord.get("id"), notNullValue());
+        }
     }
 
 }

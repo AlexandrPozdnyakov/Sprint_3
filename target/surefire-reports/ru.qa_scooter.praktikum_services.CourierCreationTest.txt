@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ru.qa_scooter.praktikum_services.CourierCreationTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.221 s <<< FAILURE! - in ru.qa_scooter.praktikum_services.CourierCreationTest
-checkCannotCreateIdenticalCouriersTest(ru.qa_scooter.praktikum_services.CourierCreationTest)  Time elapsed: 3.665 s  <<< FAILURE!
-java.lang.AssertionError: Создано два одинаковых курьера
-	at ru.qa_scooter.praktikum_services.CourierCreationTest.checkCannotCreateIdenticalCouriersTest(CourierCreationTest.java:59)
-

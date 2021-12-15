@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ru.qa_scooter.praktikum_services.ValidationOfCourierLoginTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 61.387 s <<< FAILURE! - in ru.qa_scooter.praktikum_services.ValidationOfCourierLoginTest
-checkFieldsValidationOfCourierLoginTest[0](ru.qa_scooter.praktikum_services.ValidationOfCourierLoginTest)  Time elapsed: 60.442 s  <<< FAILURE!
-java.lang.AssertionError: Некорректный код статуса expected:<400> but was:<504>
-	at ru.qa_scooter.praktikum_services.ValidationOfCourierLoginTest.checkFieldsValidationOfCourierLoginTest(ValidationOfCourierLoginTest.java:53)
-
